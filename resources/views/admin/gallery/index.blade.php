@@ -1,30 +1,5 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('plugins/bootstrap.min.css') }}">
-    <!-- Font-awesome -->
-    <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
-    <!-- Admin-lte -->
-    <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
-    <!-- Jquery -->
-    <script script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
-    {{-- datatables --}}
-    <link rel="stylesheet" href="{{ asset('plugins/datatables/dataTables.dataTables.min.css') }}">
-
-    <title>Admin Humas</title>
-</head>
-
-<body class="hold-transition sidebar-mini layout-fixed">
-
-    @include('partials.navbar')
-    @include('partials.sidebar')
-    <div class="content-wrapper">
+    @extends('admin.partials.main')
+    @section('container')
         <div class="container-fluid">
 
             <a href="{{ route('create') }}" class="btn btn-outline-success mb-3 mt-3">Tambah Baru</a>
@@ -70,18 +45,4 @@
                 </tbody>
             </table>
         </div>
-    </div>
-
-    <script src="{{ asset('js/adminlte.min.js') }}"></script>
-    <script src="{{ asset('plugins/datatables/dataTables.min.js') }}"></script>
-
-    <script>
-        $(document).ready(function() {
-            $('#myTable').DataTable();
-        });
-    </script>
-
-
-</body>
-
-</html>
+    @endsection

@@ -7,10 +7,7 @@
                   <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
               </li>
               <li class="nav-item d-none d-sm-inline-block">
-                  <a href="/" class="nav-link">Home</a>
-              </li>
-              <li class="nav-item d-none d-sm-inline-block">
-                  <a href="#" class="nav-link">Contact</a>
+                  <a href="/" onclick="target='_blank'" class="nav-link">Home</a>
               </li>
           </ul>
           <!-- Right Side Of Navbar -->
@@ -56,12 +53,6 @@
                       <i class="fas fa-expand-arrows-alt"></i>
                   </a>
               </li>
-              <!-- Authentication Links -->
-              {{-- <form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
-                @csrf
-                @method('DELETE')
-                <button class="btn btn-danger" type="submit">Logout</button>
-            </form> --}}
           </ul>
       </nav>
       <!-- /.navbar -->

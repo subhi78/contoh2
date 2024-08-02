@@ -1,2 +1,9 @@
 @import './event.css';
 @import './style.css';
+@import './bootstrap.min.css';
+@import './admin.css';
+
+@import '../../public/plugins/fontawesome-free/css/fontawesome.css';
+@import '../../public/plugins/fontawesome-free/css/regular.css';
+@import '../../public/plugins/fontawesome-free/css/solid.css';
+@import '../../public/plugins/fontawesome-free/css/brands.css';

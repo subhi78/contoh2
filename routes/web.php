@@ -35,7 +35,8 @@ Route::get('/download', [DashboardController::class, 'dokumen'])->name('download
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin');
     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/profile', [AuthController::class, 'profile'])->name('profile');
+    // Route::get('/profile', [AuthController::class, 'profile'])->name('profile');
+    Route::get('/profil', [AdminController::class, 'profil'])->name('profil');
 
 
     // GALLERY

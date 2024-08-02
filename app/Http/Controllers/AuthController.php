@@ -57,6 +57,7 @@ class AuthController extends Controller
         return redirect()->route('login');
     }
     public function profile(){
-        return view('auth.profile');
+        // return view('auth.profile');
+        return view('admin.profil.index');
     }
 }

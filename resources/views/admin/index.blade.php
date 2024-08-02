@@ -1,4 +1,4 @@
-@extends('partials.main')
+@extends('admin.partials.main')
 
 @section('container')
     <!-- Content Header (Page header) -->
