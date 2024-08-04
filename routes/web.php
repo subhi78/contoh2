@@ -11,8 +11,12 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DokumenController;
+use App\Http\Controllers\GameController;
 
 
+Route::get('/game', [GameController::class, 'index'])->name('game');
+Route::get('/tiktak', [GameController::class, 'tiktak'])->name('tiktak');
+Route::get('/gkb', [GameController::class, 'gkb'])->name('gkb');
 Auth::routes();
 
 // Route::get('/', function () {
