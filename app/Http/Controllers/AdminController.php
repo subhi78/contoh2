@@ -9,13 +9,15 @@ class AdminController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', AdminMiddleware::class]);
+        $this->middleware(['admin', AdminMiddleware::class]);
     }
 
-    public function index(){
+    public function index()
+    {
         return view('admin.index');
     }
-    public function profil(){
+    public function profil()
+    {
         return view('admin.profil.index');
     }
 }

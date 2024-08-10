@@ -17,7 +17,7 @@ use App\Http\Controllers\GameController;
 Route::get('/game', [GameController::class, 'index'])->name('game');
 Route::get('/tiktak', [GameController::class, 'tiktak'])->name('tiktak');
 Route::get('/gkb', [GameController::class, 'gkb'])->name('gkb');
-Auth::routes();
+// Auth::routes();
 
 // Route::get('/', function () {
 //     return view('index');
@@ -28,19 +28,21 @@ Route::get('/struktur-org', [DashboardController::class, 'struktur'])->name('str
 Route::get('/galeri', [DashboardController::class, 'galeri'])->name('galeri');
 Route::get('/download', [DashboardController::class, 'dokumen'])->name('download');
 
-// });
-// Route::group(['middleware' => 'guest'], function () {
-// Route::get('/register', [AuthController::class, 'register'])->name('register');
-// Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
-// Route::get('/login', [AuthController::class, 'login'])->name('login');
-// Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
-// });
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/register', [AuthController::class, 'register'])->name('register');
+    Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
+    Route::get('/profil', [AdminController::class, 'profil'])->name('profil');
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+});
+
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
+});
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
-    Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
     // Route::get('/profile', [AuthController::class, 'profile'])->name('profile');
-    Route::get('/profil', [AdminController::class, 'profil'])->name('profil');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
     // GALLERY

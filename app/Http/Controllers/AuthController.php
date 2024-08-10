@@ -11,10 +11,24 @@ class AuthController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest');
+        // hanya admin yang dapat mengakses halaman ini
+        // if (Auth::check() && Auth::user()->is_admin != '1') {
+        //     return view('game.index');
+        // }
+
+        $this->middleware(function ($request, $next) {
+            if ($request->is('login') || $request->is('logout')) {
+                return $next($request);
+            }
+            if (Auth::check() && Auth::user()->is_admin !== '1') {
+                return $next($request);
+            }
+            return view('game.index');
+        });
     }
     public function register()
     {
+
         return view('auth.register');
     }
 
@@ -56,7 +70,8 @@ class AuthController extends Controller
 
         return redirect()->route('login');
     }
-    public function profile(){
+    public function profile()
+    {
         // return view('auth.profile');
         return view('admin.profil.index');
     }
