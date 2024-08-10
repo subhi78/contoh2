@@ -28,8 +28,10 @@ class AuthController extends Controller
     }
     public function register()
     {
-
-        return view('auth.register');
+        if (Auth::check() && Auth::user()->email == 'kuwatsubhi78@gmail.com') {
+            return view('auth.register');
+        }
+        return redirect('/game');
     }
 
     public function registerPost(Request $request)
@@ -42,7 +44,7 @@ class AuthController extends Controller
 
         $user->save();
 
-        return back()->with('success', 'Register successfully');
+        return redirect('/admin')->with('success', 'Register successfully');
     }
 
     public function login()

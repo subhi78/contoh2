@@ -15,9 +15,7 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $allowedEmail = 'dua@gmail.com'; // Ganti dengan email yang diizinkan
-
-        if ($request->user() && $request->user()->email !== $allowedEmail) {
+        if ($request->user() && $request->user()->is_admin !== 1) {
             return redirect()->route('home');
         }
         return $next($request);

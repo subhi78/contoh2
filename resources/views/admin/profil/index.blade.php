@@ -1,7 +1,16 @@
 @extends('admin.partials.main')
 
 @section('container')
+    <!-- Content Header (Page header) -->
     <div class="container-fluid">
+        <div class="row">
+            <div class="text center">
+                <h1>Profil</h1>
+                <p>{{ auth()->user()->name }}</p>
+            </div>
+        </div>
+    </div>
+    {{-- <div class="container-fluid">
         <div class="row card">
             <img src="https://lh3.googleusercontent.com/ytP9VP86DItizVX2YNA-xTYzV09IS7rh4WexVp7eilIcfHmm74B7odbcwD5DTXmL0PF42i2wnRKSFPBHlmSjCblWHDCD2oD1oaM1CGFcSd48VBKJfsCi4bS170PKxGwji8CPmehwPw=w200-h247-no"
                 alt="Person" class="card__image">
@@ -75,5 +84,5 @@
             <button class="btn draw-border">Follow</button>
             <button class="btn draw-border">Message</button>
         </div>
-    </div>
+    </div> --}}
 @endsection

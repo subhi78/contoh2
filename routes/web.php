@@ -17,7 +17,7 @@ use App\Http\Controllers\GameController;
 Route::get('/game', [GameController::class, 'index'])->name('game');
 Route::get('/tiktak', [GameController::class, 'tiktak'])->name('tiktak');
 Route::get('/gkb', [GameController::class, 'gkb'])->name('gkb');
-// Auth::routes();
+Auth::routes();
 
 // Route::get('/', function () {
 //     return view('index');
@@ -28,7 +28,7 @@ Route::get('/struktur-org', [DashboardController::class, 'struktur'])->name('str
 Route::get('/galeri', [DashboardController::class, 'galeri'])->name('galeri');
 Route::get('/download', [DashboardController::class, 'dokumen'])->name('download');
 
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
     Route::get('/profil', [AdminController::class, 'profil'])->name('profil');
